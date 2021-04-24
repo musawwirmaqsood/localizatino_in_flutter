@@ -1,0 +1,10 @@
+{
+    "helloWorld": "Hello World!",
+    "@helloWorld": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "name": "My Name is Musawwir Maqsood.",
+    "@name": {
+      "description": "Introduction sentence."
+    }
+}
