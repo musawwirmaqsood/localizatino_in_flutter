@@ -5,6 +5,7 @@ import 'package:flutter_localization/widgets/language_picker_dropdown_widget.dar
 import 'package:flutter_localization/widgets/language_widget.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:stacked/stacked.dart';
 
 void main() {
@@ -12,13 +13,12 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<LanguagePickerViewModel>.reactive(
         disposeViewModel: false,
         builder: (context, languagePickerModel, child) => MaterialApp(
-              title: 'Flutter Demo',
+              debugShowCheckedModeBanner: false,
               locale: languagePickerModel.locale,
               localizationsDelegates: [
                 AppLocalizations.delegate,
@@ -28,9 +28,12 @@ class MyApp extends StatelessWidget {
               ],
               supportedLocales: L10n.all,
               theme: ThemeData(
-                primarySwatch: Colors.blue,
+                textTheme: GoogleFonts.latoTextTheme(
+                  Theme.of(context).textTheme,
+                ),
+                primarySwatch: Colors.blueGrey,
               ),
-              home: MyHomePage(title: 'Flutter Demo Home Page'),
+              home: MyHomePage(title: 'Counting App'),
             ),
         viewModelBuilder: () => LanguagePickerViewModel());
   }
@@ -44,15 +47,18 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
+Widget buildNumberWidger(String number) {
+  return Container(
+    padding: EdgeInsets.only(bottom: 8),
+    child: Text(
+      number,
+      style: TextStyle(
+          color: Colors.white, fontSize: 22, fontWeight: FontWeight.w600),
+    ),
+  );
+}
+
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,36 +66,46 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
         actions: [LanguagePickerWidget()],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            LanguageWidget(),
-            Text(
-              AppLocalizations.of(context).helloWorld,
-              style: Theme.of(context).textTheme.headline6,
+      body: Stack(
+        children: [
+          Container(
+            color: Color.fromRGBO(131, 149, 167, 1),
+          ),
+          Container(
+            padding: EdgeInsets.all(32),
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                    padding: EdgeInsets.only(bottom: 8),
+                    child: Row(
+                      children: [
+                        Text(
+                          'Counting 1-10',
+                          style: TextStyle(
+                              fontSize: 26,
+                              color: Color.fromRGBO(34, 47, 62, 1.0),
+                              fontWeight: FontWeight.w600),
+                        ),
+                      ],
+                    ),
+                  ),
+                  buildNumberWidger(AppLocalizations.of(context).one),
+                  buildNumberWidger(AppLocalizations.of(context).two),
+                  buildNumberWidger(AppLocalizations.of(context).three),
+                  buildNumberWidger(AppLocalizations.of(context).four),
+                  buildNumberWidger(AppLocalizations.of(context).five),
+                  buildNumberWidger(AppLocalizations.of(context).six),
+                  buildNumberWidger(AppLocalizations.of(context).seven),
+                  buildNumberWidger(AppLocalizations.of(context).eight),
+                  buildNumberWidger(AppLocalizations.of(context).nine),
+                  buildNumberWidger(AppLocalizations.of(context).ten),
+                ],
+              ),
             ),
-            SizedBox(
-              height: 12,
-            ),
-            Text(
-              AppLocalizations.of(context).name,
-              style: Theme.of(context).textTheme.headline6,
-            ),
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
+          ),
+        ],
       ),
     );
   }
