@@ -1,10 +1,42 @@
 {
-    "helloWorld": "Hello World!",
-    "@helloWorld": {
-      "description": "The conventional newborn programmer greeting"
+    "one": "One",
+    "@one": {
+      "description": "One"
     },
-    "name": "My Name is Musawwir Maqsood.",
-    "@name": {
-      "description": "Introduction sentence."
+    "two": "Two",
+    "@two": {
+      "description": "Two"
+    },
+    "three": "Three",
+    "@three": {
+      "description": "Three"
+    },
+    "four": "Four",
+    "@four": {
+      "description": "Four"
+    },
+    "five": "Five",
+    "@five": {
+      "description": "Five"
+    },
+    "six": "Six",
+    "@six": {
+      "description": "Six"
+    },
+    "seven": "Seven",
+    "@seven": {
+      "description": "Seven"
+    },
+    "eight": "Eight",
+    "@eight": {
+      "description": "Eight"
+    },
+    "nine": "Nine",
+    "@nine": {
+      "description": "Nine"
+    },
+    "ten": "Ten",
+    "@ten": {
+      "description": "Ten"
     }
 }

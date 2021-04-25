@@ -1,4 +1,12 @@
 {
-    "helloWorld": "Hola Mundo!",
-    "name": "My Name is Musawwir Maqsood in spanish."
+    "one": "Uno",
+    "two": "Dos",
+    "three": "Tres",
+    "four": "Cuatro",
+    "five": "Cinco",
+    "six": "Seis",
+    "seven": "Siete",
+    "eight": "Ocho",
+    "nine": "Nueve",
+    "ten": "Diez"
 }
