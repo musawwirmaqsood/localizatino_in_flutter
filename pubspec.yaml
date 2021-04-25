@@ -18,6 +18,7 @@ dependencies:
   # and parsing, and bidirectional text.
   intl: ^0.17.0
   stacked: ^2.1.0
+  google_fonts: ^2.0.0
 
   cupertino_icons: ^1.0.2
 
